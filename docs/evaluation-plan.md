@@ -37,6 +37,10 @@ For the same small synthetic feedback set, do model-backed drafts improve theme 
 
 Do not call a model better based on one example or a small score difference. Review failure cases, inter-reviewer disagreement, and cost. Publish model names, run counts, dataset version, date, and caveats with any eventual result. A model remains a drafting aid even if it scores higher.
 
-## Status
+## Initial baseline run
 
-Evaluation not yet run. The repository contains no claimed benchmark scores or model winner.
+The deterministic offline baseline was run once on fixture-v1 on 2026-10-22. The reproducible output is [baseline-report.json](../evals/baseline-report.json); rerun it with python evals/evaluate.py.
+
+The six feedback items had 100% valid citation IDs, 100% exact-quote rate, 100% coverage, and 1.00 precision, recall, and F1 against the author-written theme/source labels. The heuristic did not flag unsupported-claim language. These are mechanical smoke-test results on a tiny fixture whose labels were not independently reviewed. They do not show that the themes are useful, representative, or better than an LLM output.
+
+OpenAI and Anthropic provider runs have not been performed. The next benchmark step is three runs per provider, followed by blind human scoring for usefulness, grounding, uncertainty, and review effort. No model winner or provider quality, cost, or latency claim is published.
