@@ -1,0 +1,9 @@
+{
+  "dataset_version": "fixture-v1",
+  "themes": {
+    "Inventory visibility": ["F-001", "F-004", "F-006"],
+    "Checkout reliability": ["F-002"],
+    "Order status clarity": ["F-003", "F-005"]
+  },
+  "review_note": "Author-written reference labels for a six-item fictional fixture. These labels are a small smoke-test reference, not independently validated ground truth."
+}

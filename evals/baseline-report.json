@@ -1,0 +1,21 @@
+{
+  "run_date": "2026-10-22",
+  "system": "offline-keyword-baseline",
+  "dataset_version": "fixture-v1",
+  "feedback_items": 6,
+  "themes": 3,
+  "citation_validity": 1.0,
+  "exact_quote_rate": 1.0,
+  "quote_source_mismatch_count": 0,
+  "feedback_coverage": 1.0,
+  "reference_pair_precision": 1.0,
+  "reference_pair_recall": 1.0,
+  "reference_pair_f1": 1.0,
+  "unsupported_claims_flagged_by_heuristic": [],
+  "limitations": [
+    "One deterministic run on six fictional items; this is a smoke test, not a model benchmark.",
+    "Reference labels were written by the project author and were not independently reviewed.",
+    "The unsupported-claim scan is a keyword heuristic and cannot establish factuality.",
+    "No human usefulness, review-time, latency, or cost scores were collected."
+  ]
+}
