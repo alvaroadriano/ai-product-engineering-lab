@@ -1,0 +1,11 @@
+{
+  "project": "Fictional online store feedback sample",
+  "feedback": [
+    {"id": "F-001", "segment": "new shopper", "text": "I saw the shoes in an ad, but the product page did not tell me if my size was available."},
+    {"id": "F-002", "segment": "returning shopper", "text": "The checkout showed a payment error, so I tried again and worried I had been charged twice."},
+    {"id": "F-003", "segment": "returning shopper", "text": "After placing my order I could not find clear tracking or delivery status."},
+    {"id": "F-004", "segment": "new shopper", "text": "The item looked available, but it was out of stock when I reached checkout."},
+    {"id": "F-005", "segment": "returning shopper", "text": "My order page still says processing even though the parcel was shipped yesterday."},
+    {"id": "F-006", "segment": "new shopper", "text": "I wanted to know whether the jacket was in stock before I travelled to the store."}
+  ]
+}
