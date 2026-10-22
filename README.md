@@ -25,8 +25,10 @@ python -m app --fixture
 # Optional: run the same feedback through an LLM provider
 cp .env.example .env
 # Add one provider key and set MODEL in .env, then:
-pip install python-dotenv
 python -m app --fixture --provider
+
+# Run the offline behavior checks
+python -m unittest discover -s tests -v
 ```
 
 Provider mode reads `MODEL` (for example, a current OpenAI or Anthropic model identifier) and the corresponding `OPENAI_API_KEY` or `ANTHROPIC_API_KEY` from the environment. Model availability and pricing change; check the provider's current documentation before use. API usage is billed separately from ChatGPT or Claude subscriptions.
