@@ -4,7 +4,7 @@ An independent product and technical exploration of evidence-grounded product di
 
 **Product Evidence Copilot** turns a small set of synthetic customer feedback into a structured brief: themes, representative evidence, confidence, open questions, and claims that need validation. It includes a deterministic local mode and an optional provider-backed mode that can run the same task with OpenAI or Anthropic through Pydantic AI.
 
-> This is a portfolio learning project. The feedback is fictional, the workflow is illustrative, and no model comparison results are claimed until the evaluation plan has been run and its outputs reviewed.
+> This is a portfolio learning project. The feedback is fictional and the workflow is illustrative. A small baseline smoke evaluation is published; provider comparison results are not yet available.
 
 ## Why this project
 
@@ -14,7 +14,7 @@ The project demonstrates product framing, structured output, provider abstractio
 
 ## Try it locally
 
-```bash
+~~~bash
 python -m venv .venv
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
@@ -29,15 +29,18 @@ python -m app --fixture --provider
 
 # Run the offline behavior checks
 python -m unittest discover -s tests -v
-```
 
-Provider mode reads `MODEL` (for example, a current OpenAI or Anthropic model identifier) and the corresponding `OPENAI_API_KEY` or `ANTHROPIC_API_KEY` from the environment. Model availability and pricing change; check the provider's current documentation before use. API usage is billed separately from ChatGPT or Claude subscriptions.
+# Run the traceability and fixture-label smoke evaluation
+python evals/evaluate.py
+~~~
 
-To analyze your own data, pass a UTF-8 JSON file with the schema shown in [`fixtures/feedback.json`](fixtures/feedback.json):
+Provider mode reads MODEL (for example, a current OpenAI or Anthropic model identifier) and the corresponding OPENAI_API_KEY or ANTHROPIC_API_KEY from the environment. Model availability and pricing change; check the provider's current documentation before use. API usage is billed separately from ChatGPT or Claude subscriptions.
 
-```bash
+To analyze your own data, pass a UTF-8 JSON file with the schema shown in [fixtures/feedback.json](fixtures/feedback.json):
+
+~~~bash
 python -m app --input path/to/feedback.json
-```
+~~~
 
 Do not put confidential, personal, or customer-identifiable data into this demo.
 
@@ -51,13 +54,13 @@ Do not put confidential, personal, or customer-identifiable data into this demo.
 
 ## Repository map
 
-```text
+~~~text
 app/          typed analysis schema, baseline, and optional LLM path
 docs/         product brief, system design, and evaluation plan
-evals/        small, synthetic benchmark cases and rubric
+evals/        synthetic reference labels, evaluation runner, and baseline report
 fixtures/     fictional feedback used by the demo
-tests/        checks for source traceability and baseline behavior
-```
+tests/        checks for source traceability, baseline behavior, and evaluation rules
+~~~
 
 ## Curated open-source projects
 
@@ -78,11 +81,11 @@ These are upstream projects to study or build on, not code copied into this repo
 - Treat model output as a draft. Human review remains a required step before decisions.
 - Evaluate evidence grounding and unsupported claims before optimizing for speed or cost.
 
-See [`docs/product-brief.md`](docs/product-brief.md), [`docs/architecture.md`](docs/architecture.md), and [`docs/evaluation-plan.md`](docs/evaluation-plan.md).
+See [docs/product-brief.md](docs/product-brief.md), [docs/architecture.md](docs/architecture.md), and [docs/evaluation-plan.md](docs/evaluation-plan.md).
 
 ## Current status
 
-Prototype and learning project. The offline baseline and unit tests are runnable. Provider-backed outputs have not yet been benchmarked; no quality, cost, or time comparison is published.
+Prototype and learning project. The offline baseline, three unit tests, and a small traceability smoke evaluation are runnable. On the six-item fictional fixture, the baseline matched the author-written reference labels and preserved its cited source IDs and quotes. This is not independent evidence of usefulness or model quality. OpenAI and Anthropic runs, blind human review, cost, and latency have not been measured. See the [baseline report](evals/baseline-report.json) and [evaluation plan](docs/evaluation-plan.md) for scope and limitations.
 
 ## About the author
 
